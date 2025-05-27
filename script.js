@@ -71,7 +71,7 @@ function showCommentsModal() {
     const modal = document.getElementById('comments-modal');
     if (modal) {
         modal.style.display = 'block';
-        fetchComments(); // Завантажувати коментарі при відкритті модального вікна
+        fetchComments(); 
     }
 }
 
@@ -136,7 +136,7 @@ function setThemeByTime() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Додаємо футер, якщо його немає
+
     if (!document.getElementById('footer')) {
         const footer = document.createElement('footer');
         footer.id = 'footer';
@@ -144,17 +144,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(footer);
     }
 
-    // Ставимо базовий клас для теми
     document.body.classList.add('light');
 
-    // Встановлюємо порядок виконання важливих функцій
     setThemeByTime();
     storeSystemInfo();
     
-    // Встановлюємо таймер для відображення форми зворотнього зв'язку
-    setInterval(showFeedbackModal, 10000); // 1 хвилина
+    setInterval(showFeedbackModal, 30000); 
 
-    // Додаємо обробники подій
     const showCommentsBtn = document.getElementById('show-comments-btn');
     if (showCommentsBtn) {
         showCommentsBtn.addEventListener('click', showCommentsModal);
