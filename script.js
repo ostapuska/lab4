@@ -17,19 +17,20 @@ function displayLocalStorageInfo() {
     const footer = document.getElementById('footer');
     if (!footer) return;
     
-    let storageInfo = '<h3>Інформація з localStorage:</h3>';
+    let storageInfo = '<h3>Інформація з localStorage:</h3><div class="storage-data">';
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         try {
             const value = JSON.parse(localStorage.getItem(key));
             storageInfo += `<details>
                 <summary>${key}</summary>
-                <pre>${JSON.stringify(value, null, 2)}</pre>
+                <div class="storage-value">${JSON.stringify(value, null, 2)}</div>
             </details>`;
         } catch (e) {
             storageInfo += `<p><strong>${key}:</strong> ${localStorage.getItem(key)}</p>`;
         }
     }
+    storageInfo += '</div>';
     
     footer.innerHTML = storageInfo;
 }
@@ -151,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
     storeSystemInfo();
     
     // Встановлюємо таймер для відображення форми зворотнього зв'язку
-    setTimeout(showFeedbackModal, 10000); // 1 хвилина
+    setInterval(showFeedbackModal, 10000); // 1 хвилина
 
     // Додаємо обробники подій
     const showCommentsBtn = document.getElementById('show-comments-btn');

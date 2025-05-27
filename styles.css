@@ -144,6 +144,16 @@ body.light .comment {
     border-radius: 8px;
     font-size: 11px;
     transition: background-color 0.3s, border-color 0.3s;
+    overflow-wrap: break-word; /* Додайте ці правила */
+    word-wrap: break-word;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.footer pre {
+    white-space: pre-wrap;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 body.light .footer {
