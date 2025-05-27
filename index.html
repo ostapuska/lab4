@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="theme-switcher">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle" onclick="toggleTheme()">
+            <span class="slider round"></span>
+        </label>
+        <span>Нічний режим</span>
+    </div>
+    
+    <div class="container">
+        <div class="left-column">
+            <div class="photo">
+                <img src="5310086068156104004.jpg" alt="Фото Остапа">
+            </div>
+            
+            <div class="section">
+                <h2>Особиста інформація</h2>
+                <p><strong>Ім'я:</strong> Остап Паук</p>
+                <p><strong>Місто:</strong> Львів</p>
+                <p><strong>Спеціальність:</strong> Кібербезпека</p>
+            </div>
+
+            <div class="section">
+                <h2>Контакти</h2>
+                <ul>
+                    <li>Email: ostap.pauk.kb.2022@lpnu.ua</li>
+                    <li>GitHub: <a href="https://github.com/ostapuska" target="_blank">ostapuska</a></li>
+                </ul>
+                <button id="show-comments-btn" class="comments-btn">Показати відгуки</button>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <h1 class="resume-title">Резюме</h1>
+
+            <div class="section">
+                <h2>Освіта</h2>
+                <ul>
+                    <li>Студент, спеціальність "Кібербезпека"</li>
+                    <li>Національний університет "Львівська політехніка"</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Навички</h2>
+                <ul>
+                    <li>Основи мережевої безпеки</li>
+                    <li>Linux (Kali), Windows</li>
+                    <li>Python, Bash</li>
+                    <li>Тестування безпеки Wi-Fi мереж</li>
+                    <li>Робота з IP-камерами (RTSP, HTTP, ONVIF)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Проєкти</h2>
+                <h3>IP Camera Scanner</h3>
+                <p>Інструмент на Python з GUI для пошуку та підключення до IP-камер, з підтримкою RTSP, HTTP, ONVIF і брутфорсом.</p>
+            </div>
+
+            <div class="section">
+                <h2>Мови</h2>
+                <ul>
+                    <li>Українська — рідна</li>
+                    <li>Англійська — середній</li>
+                    <li>Польська — базовий</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Особисті якості</h2>
+                <ul>
+                    <li>Цілеспрямованість</li>
+                    <li>Аналітичні здібності</li>
+                    <li>Легко налагоджую комунікацію в колективі</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="comments-modal" class="comments-modal">
+        <div class="comments-modal-content">
+            <span class="close" onclick="closeCommentsModal()">&times;</span>
+            <h2>Відгуки попередніх роботодавців</h2>
+            <div id="comments-section" class="comments-scrollable"></div>
+        </div>
+    </div>
+
+    <footer id="footer" class="footer"></footer>
+    
+    <div id="feedback-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeFeedbackModal()">&times;</span>
+            <h2>Форма зворотнього зв'язку</h2>
+
+            <form action="https://formspree.io/f/mdkgqalp" method="POST">
+                <div class="form-group">
+                    <label for="name">Ім'я:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Номер телефону:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Повідомлення:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                
+                <button type="submit">Відправити</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
