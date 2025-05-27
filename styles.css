@@ -144,7 +144,7 @@ body.light .comment {
     border-radius: 8px;
     font-size: 11px;
     transition: background-color 0.3s, border-color 0.3s;
-    overflow-wrap: break-word; /* Додайте ці правила */
+    overflow-wrap: break-word; 
     word-wrap: break-word;
     overflow-x: auto;
     max-width: 100%;
