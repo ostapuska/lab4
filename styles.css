@@ -26,8 +26,7 @@ body.dark {
     display: flex;
     flex-direction: row;
     gap: 12px; 
-    width: 90%;
-    max-width: 550px;
+    width: 550px; /* Змініть з 90% на фіксовану ширину */
     margin: auto;
     margin-top: 60px;
     padding: 15px 12px; 
@@ -136,8 +135,7 @@ body.light .comment {
 }
 
 .footer {
-    width: 90%;
-    max-width: 550px;
+    width: 550px; /* Змініть з 90% на фіксовану ширину */
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 15px;
@@ -149,7 +147,6 @@ body.light .comment {
     overflow-wrap: break-word; 
     word-wrap: break-word;
     overflow-x: auto;
-    max-width: 100%;
 }
 
 .footer pre {
@@ -405,20 +402,24 @@ body.light .comments-scrollable::-webkit-scrollbar-track {
     background: #79b8ff;
 }
 
+/* Медіа-запит для великих екранів (опціонально) */
+@media (min-width: 1200px) {
+  .container, .footer {
+    max-width: 550px; /* Обмежуємо максимальну ширину */
+  }
+}
+
 /* Медіа-запит для планшетів */
 @media (max-width: 768px) {
   .container {
     width: 95%;
+    max-width: 550px;
     margin-top: 30px;
   }
   
   .footer {
     width: 95%;
-  }
-  
-  .photo img {
-    width: 80px;
-    height: 80px;
+    max-width: 550px;
   }
 }
 
@@ -512,5 +513,17 @@ body.light .comments-scrollable::-webkit-scrollbar-track {
   
   input:checked + .slider:before {
     transform: translateX(18px);
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    width: 550px; /* Фіксована ширина для ноутбуків і більших екранів */
+    max-width: 90%; /* Але не ширше 90% екрану */
+  }
+  
+  .footer {
+    width: 550px;
+    max-width: 90%;
   }
 }
