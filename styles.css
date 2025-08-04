@@ -527,3 +527,48 @@ body.light .comments-scrollable::-webkit-scrollbar-track {
     max-width: 90%;
   }
 }
+
+/* Стилі для кнопки експорту PDF */
+.pdf-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.pdf-btn:hover {
+    background-color: #e53935;
+}
+
+/* Стилі для друку та PDF */
+@media print {
+    .theme-switcher, .footer {
+        display: none !important;
+    }
+    
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+    
+    .container {
+        border: none !important;
+        box-shadow: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .right-column {
+        border-left-color: #ccc !important;
+    }
+    
+    a {
+        color: #0366d6 !important;
+        text-decoration: none;
+    }
+}

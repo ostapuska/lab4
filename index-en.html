@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Підключаємо html2pdf бібліотеку -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body class="light">
+    <div class="theme-switcher">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle" onclick="toggleTheme()">
+            <span class="slider round"></span>
+        </label>
+        <span>Night Mode</span>
+        <button id="download-pdf" class="pdf-btn" onclick="generatePDF()">Download PDF</button>
+    </div>
+    
+    <div id="resume-content" class="container">
+        <div class="left-column">
+            <div class="photo">
+                <img src="5310086068156104004.jpg" alt="Photo">
+            </div>
+            
+            <div class="section">
+                <h2>Personal Information</h2>
+                <p><strong>Age:</strong> 20</p>
+                <p><strong>City:</strong> Lviv</p>
+                <p><strong>Specialization:</strong> Cybersecurity</p>
+            </div>
+
+            <div class="section">
+                <h2>Contacts</h2>
+                <ul>
+                    <li>Email: ostap.pauk.kb.2022@lpnu.ua</li>
+                    <li>GitHub: <a href="https://github.com/ostapuska" target="_blank">ostapuska</a></li>
+                    <li>Phone: +380636705051</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <h1 class="resume-title">Ostap Pauk</h1>
+
+            <div class="section">
+                <h2>Education</h2>
+                <ul>
+                    <li>Student, "Cybersecurity" specialization</li>
+                    <li>Lviv Polytechnic National University</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Skills</h2>
+                <ul>
+                    <li>Network security fundamentals</li>
+                    <li>Linux (Kali), Windows</li>
+                    <li>Python, HTML, CSS</li>
+                    <li>Wi-Fi network security testing</li>
+                    <li>Working with IP cameras (RTSP, HTTP, ONVIF)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Projects</h2>
+                <h3>IP Camera Scanner</h3>
+                <p>Python tool with GUI for searching and connecting to IP cameras, supporting RTSP, HTTP, ONVIF and brute force.</p>
+            </div>
+
+            <div class="section">
+                <h2>Languages</h2>
+                <ul>
+                    <li>Ukrainian — native</li>
+                    <li>English — B1+</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Personal Qualities</h2>
+                <ul>
+                    <li>Goal-oriented</li>
+                    <li>Analytical skills</li>
+                    <li>Good team communication</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer" class="footer"></footer>
+    
+    <script src="script.js"></script>
+    <script>
+    function generatePDF() {
+        // Зберігаємо оригінальний клас теми
+        const originalTheme = document.body.className;
+        
+        // Встановлюємо світлу тему для PDF
+        document.body.className = 'light';
+        
+        // Приховуємо елементи, які не потрібні у PDF
+        const themeSwitcher = document.querySelector('.theme-switcher');
+        const originalSwitcherDisplay = themeSwitcher.style.display;
+        themeSwitcher.style.display = 'none';
+        
+        // Приховуємо футер
+        const footer = document.getElementById('footer');
+        let footerDisplay = '';
+        if (footer) {
+            footerDisplay = footer.style.display;
+            footer.style.display = 'none';
+        }
+        
+        // Налаштування PDF
+        const options = {
+            margin: 10,
+            filename: 'Ostap_Pauk_Resume.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        // Генеруємо PDF
+        const content = document.getElementById('resume-content');
+        html2pdf().from(content).set(options).save().then(function() {
+            // Повертаємо все як було після генерації PDF
+            themeSwitcher.style.display = originalSwitcherDisplay;
+            document.body.className = originalTheme;
+            
+            if (footer) {
+                footer.style.display = footerDisplay;
+            }
+        });
+    }
+    </script>
+</body>
+</html>
